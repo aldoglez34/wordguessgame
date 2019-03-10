@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <title>Word guess game</title>
 
-    <!-- link to the css file -->
+    <!-- link para el css file -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
-    <!-- link to bootsrap cdn -->
+    <!-- link para bootsrap cdn -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -16,8 +16,154 @@
 
 <body>
 
+    <!-- <div id="letras" class="letras"></div> -->
+
+    <div class="jumbotron">
+        <h1 class="text-center">
+            <strong>90's Sitcom Guess Game</strong>
+        </h1>
+        <hr>
+        <h4 class="text-center">
+            <div id="letras" class="d-inline bg-success"></div>
+        </h4>
+        <h4 class="text-center">
+            <div id="errores" class="h1 d-inline bg-warning text-white">Errores: </div>
+        </h4>
+    </div>
+
     <!-- javascript -->
-    <script type="text/javascript" src="./assets/javascript/game.js">
+    <script type="text/javascript">
+
+        //lista de tv shows
+        var tvShows = [" ",
+            "Seinfield",
+            "Boy Meets World",
+            "Alf",
+            "The Fresh Prince Of Bel Air",
+            "The Nanny",
+            "Friends",
+            "Full House"];
+
+        //se genera un número al azar
+        var x = tvShows.length - 1
+        var random = Math.floor((Math.random() * x) + 1);
+
+        //se guarda el show elegido en un string
+        var show = tvShows[random];
+
+        //se convierte string del show en un array
+        var showArray = show.split('');
+
+        //se crea array 2 basado en el length del show
+        //se reemplazan las letras con -
+        var showArrayGame = [];
+
+        for (var i = 0; i < showArray.length; i++) {
+
+            if (showArray[i].toLowerCase() === " ") {
+                showArrayGame.push(" ");
+            }
+            else {
+                showArrayGame.push("_");
+            }
+
+        }
+
+        console.log("array 1: " + showArray);
+        console.log("array 2: " + showArrayGame);
+
+        //función para limpiar el arreglo
+        function limpiarArreglo() {
+
+            var targetDiv = document.getElementById("letras");
+
+            targetDiv.innerHTML = '';
+
+        }
+
+        //función para mostrar el arreglo
+        function mostrarArreglo() {
+
+            var targetDiv = document.getElementById("letras");
+
+            for (var i = 0; i < showArrayGame.length; i++) {
+                var newDiv = document.createElement("div");
+                newDiv.textContent = showArrayGame[i];
+
+                newDiv.classList.add("h1");
+                newDiv.classList.add("d-inline");
+                newDiv.classList.add("bg-success");
+                newDiv.classList.add("text-white");
+
+                targetDiv.appendChild(newDiv);
+
+            }
+        }
+
+        //función para actualizar el arreglo de errores
+        var oportunidades = 6;
+
+        function actualizarErrores(letra) {
+
+            var existe = false;
+
+            if (oportunidades > 0) {
+
+                for (var i = 0; i < showArray.length; i++) {
+
+                    if (showArray[i].toLowerCase() === letra.toLowerCase()) {
+                        existe = true;
+                    }
+
+                }
+
+                if (!existe) {
+                    oportunidades--;
+
+                    var targetDiv = document.getElementById("errores");
+
+                    var newDiv = document.createElement("div");
+                    newDiv.textContent = letra;
+
+                    newDiv.classList.add("h1");
+                    newDiv.classList.add("d-inline");
+                    newDiv.classList.add("bg-warning");
+                    newDiv.classList.add("text-white");
+
+                    targetDiv.appendChild(newDiv);
+
+                    alert("Te quedan: " + oportunidades + " oportunidades");
+
+                }
+            }
+            else {
+                alert("Se acabaron tus oportunidades");
+            }
+
+        }
+
+        limpiarArreglo();
+        mostrarArreglo();
+
+        //evento para monitorear las letras presionadas
+        document.onkeyup = function (event) {
+
+            var letra = event.key.toLowerCase();
+
+            for (var i = 0; i < showArray.length; i++) {
+
+                if (showArray[i].toLowerCase() === letra.toLowerCase()) {
+                    showArrayGame.splice(i, 1, letra.toLowerCase());
+                    console.log(showArrayGame);
+                }
+
+            }
+
+            limpiarArreglo();
+            mostrarArreglo();
+            actualizarErrores(letra);
+
+        }
 
 
     </script>
