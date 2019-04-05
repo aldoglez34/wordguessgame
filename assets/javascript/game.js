@@ -85,8 +85,8 @@ $("._newgamebttn").click(function () {
         // show game info
         $("#ui_username").append("<span class=text-light>" + username + "</span>");
         $("#ui_difficulty").append("<span class=text-light>" + difficulty + "</span>");
-        $("#ui_level").append("<span class=text-light>" + level + "</span>");
-        $("#ui_points").append("<span class=text-light>" + points + "</span>");
+        $("#ui_level").html(level);
+        $("#ui_points").html(points);
 
         // set wordsArray depending on the difficulty
         if (difficulty === "EASY") {
@@ -341,11 +341,11 @@ function checkIfWinOrLose() {
 
         // udpate level
         level++;
-        $("#ui_level").text("Level: " + level);
+        $("#ui_level").html(level);
 
         // update points
         points = points + 1000;
-        $("#ui_points").text("Points: " + points);
+        $("#ui_points").html(points);
 
         // show new word
         pickNewWord();

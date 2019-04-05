@@ -41,7 +41,8 @@
         <h3 class="text-warning">Instructions</h3>
         <p class="lead text-light">Guess letters one at a time to solve the word puzzle. Click a letter to
             guess it, or type with your keyboard. Each time you make a mistake, you lose one of your hearts, if the
-            heart count is zero the game is over. Try solving as much words as you can!</p>
+            heart count gets to zero the game is over. Try solving as much words as you can, your final score will be
+            uploaded to a database for all the world to see!</p>
 
         <!-- ! username -->
         <h3 class="h3 text-warning">Username</h3>
@@ -79,8 +80,8 @@
             <div id="ui_difficulty">
                 <span class="text-warning">Difficulty: </span>
             </div>
-            <div id="ui_level">
-                <span class="text-warning">Level: </span>
+            <div>
+                <span class="text-warning">Level: </span><span class="text-light" id="ui_level"></span>
             </div>
             <div>
                 <span class="text-warning">Points: </span><span class="text-light" id="ui_points"></span>
@@ -103,7 +104,7 @@
                 <tr>
                     <td class="letter">A</td>
                     <td class="letter">B</td>
-                    <td>C</td>
+                    <td class="letter">C</td>
                     <td class="letter">D</td>
                 </tr>
                 <tr>
@@ -145,40 +146,23 @@
             </tbody>
         </table>
 
-        <!-- <div class="mt-4 mb-4" id="letters">
-            <div class="col-12 text-center">
-                <span class="_letteropt letter">A</span>
-                <span class="_letteropt letter">B</span>
-                <span class="_letteropt letter">C</span>
-                <span class="_letteropt letter">D</span>
-                <span class="_letteropt letter">E</span>
-                <span class="_letteropt letter">F</span>
-                <span class="_letteropt letter">G</span>
-                <span class="_letteropt letter">H</span>
-                <span class="_letteropt letter">I</span>
-                <span class="_letteropt letter">J</span>
-                <span class="_letteropt letter">K</span>
-                <span class="_letteropt letter">L</span>
-                <span class="_letteropt letter">M</span>
-                <span class="_letteropt letter">N</span>
-                <span class="_letteropt letter">O</span>
-                <span class="_letteropt letter">P</span>
-                <span class="_letteropt letter">Q</span>
-                <span class="_letteropt letter">R</span>
-                <span class="_letteropt letter">S</span>
-                <span class="_letteropt letter">T</span>
-                <span class="_letteropt letter">U</span>
-                <span class="_letteropt letter">V</span>
-                <span class="_letteropt letter">W</span>
-                <span class="_letteropt letter">X</span>
-                <span class="_letteropt letter">Y</span>
-                <span class="_letteropt letter">Z</span>
-            </div>
-        </div> -->
-
     </div>
 
+    <!-- ! LOSE CONTAINER -->
+    <div class="container mt-4" id="losecontainer">
 
+        <h1 class="text-warning text-center mt-4">GAME OVER</h1>
+        <p class="text-light mt-4">Congratulations <span id="yourusername"></span>, you did great.</p>
+        <p class="text-light mt-4">Your score of <span id="yourscore"></span> will be uploaded to the
+            database.</p>
+        <p class="text-light mt-4">You reached level <span id="yourlevel"></span>.</p>
+
+        <!-- ! play button -->
+        <div class="text-center mt-4 mb-4">
+            <span class="_newgamebttn">PLAY</span>
+        </div>
+
+    </div>
 
 
     <!-- ! links -->
