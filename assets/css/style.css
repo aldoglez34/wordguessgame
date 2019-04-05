@@ -48,47 +48,4 @@
         font-family: 'Bungee', cursive;
         color: orange;
         font-size: 35px;
-        /* margin-left: 25px;
-        margin-right: 25px; */
     }
-
-    ._letteropt {
-        font-family: 'Bungee', cursive;
-        font-size: 18px;
-        cursor: pointer;
-    }
-
-    ._textopt {
-        color: white;
-        cursor: pointer;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-
-    ._selectedtextopt {
-        color: white;
-        border: 4px dashed orangered;
-        border-radius: 5px;
-    }
-
-    /* game info (row 2) */
-
-    ._gameinfocontainer {
-        border: 4px dashed orangered;
-        border-radius: 5px;
-    }
-
-    ._gameinfotext {
-        font-size: 30px;
-        font-weight: bold;
-        margin-right: 5px;
-        margin-bottom: 8px;
-    }
-
-    /* game word container */
-
-    /* ._hangmancontainer {
-        margin-top: 80px;
-    } */
-
-    /* last container */

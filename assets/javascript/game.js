@@ -51,12 +51,21 @@ window.onload = function () {
     // hide everything except for the id_newgame_container
     $("#hangmangamecontainer").hide();
     $("#losecontainer").hide();
+
+    // if there's a username in the local storage, show it
+    if (localStorage.getItem("wordguessgame") != null) {
+
+        $("#username").val(localStorage.getItem("wordguessgame"));
+    }
 };
 
 // ! new game button
 $("._newgamebttn").click(function () {
 
+    // hide the lose container in case it's a rerun
     $("#losecontainer").hide();
+
+
 
     // reset all values
     points = 1000;
@@ -64,6 +73,7 @@ $("._newgamebttn").click(function () {
     word = [];
     _word = [];
     errorLetters = [];
+    difficulty = $("#difficultyform").val();
     $("#ui_hearts").html("");
     $("#usedletters").html("");
 
@@ -79,17 +89,23 @@ $("._newgamebttn").click(function () {
 
     if (canStart) {
 
+        // saves user in the local storage if checkbox is checked
+        if (document.getElementById("rememberme").checked === true) {
+
+            localStorage.setItem("wordguessgame", username);
+        }
+
         // starts listening to input keys
         isListening = true;
 
         // show game info
         $("#ui_username").append("<span class=text-light>" + username + "</span>");
-        $("#ui_difficulty").append("<span class=text-light>" + difficulty + "</span>");
+        $("#ui_difficulty").html(difficulty);
         $("#ui_level").html(level);
         $("#ui_points").html(points);
 
         // set wordsArray depending on the difficulty
-        if (difficulty === "EASY") {
+        if (difficulty === "Easy") {
             wordsArray.push("WHEEL");
             wordsArray.push("BREAD");
             wordsArray.push("ANGRY");
@@ -100,7 +116,7 @@ $("._newgamebttn").click(function () {
             wordsArray.push("LAUGH");
             hearts = 7;
         }
-        else if (difficulty === "MEDIUM") {
+        else if (difficulty === "Medium") {
             wordsArray.push("ABROAD");
             wordsArray.push("ACTRESS");
             wordsArray.push("AIRLINE");
@@ -111,7 +127,7 @@ $("._newgamebttn").click(function () {
             wordsArray.push("PERCENTAGE");
             hearts = 6;
         }
-        else if (difficulty === "HARD") {
+        else if (difficulty === "Hard") {
             wordsArray.push("FURTHERMORE");
             wordsArray.push("FURTHERMORE");
             wordsArray.push("FURTHERMORE");
@@ -357,7 +373,6 @@ function checkIfWinOrLose() {
     // ! if user didn't win then check if the user lost
     else if (hearts === 0) {
 
-        $("#yourusername").text(username);
         $("#yourscore").text(points);
         $("#yourlevel").text(level);
 
