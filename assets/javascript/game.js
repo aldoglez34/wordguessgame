@@ -192,14 +192,14 @@ document.onkeyup = function (event) {
 
 $(".letter").click(function () {
 
-    // // var "k" will hold the letter pressed
-    // var k = $(this).text();
+    // var "k" will hold the letter pressed
+    var k = $(this).text();
 
-    // // check if the given letter is in the word array
-    // checkLetter(k);
+    // check if the given letter is in the word array
+    checkLetter(k);
 
-    // // check if the user won or lost
-    // checkIfWinOrLose();
+    // check if the user won or lost
+    checkIfWinOrLose();
 
 });
 
