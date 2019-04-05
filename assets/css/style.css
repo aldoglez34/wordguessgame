@@ -55,3 +55,9 @@
         color: orange;
         font-size: 35px;
     }
+
+    @media screen and (max-width: 768px) {
+        ._hangmanletter {
+            font-size: 25px;
+        }
+    }
