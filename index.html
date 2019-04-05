@@ -82,83 +82,100 @@
             <div id="ui_level">
                 <span class="text-warning">Level: </span>
             </div>
-            <div id="ui_points">
-                <span class="text-warning">Points: </span>
+            <div>
+                <span class="text-warning">Points: </span><span class="text-light" id="ui_points"></span>
             </div>
-            <div id="ui_hearts">
-                <span class="text-warning">Hearts: </span>
+            <div>
+                <span class="text-warning">Hearts: </span><span id="ui_hearts"></span>
             </div>
         </div>
-
-        <!-- ! hearts and used letters -->
-
-        <div class="text-right mt-2" id="heartsdiv">
-
-        </div>
-
-        <!-- <div class="container-fluid">
-
-            <div class="_gameinfocontainer">
-                <h4 class="text-light mt-2">Hearts: </h4>
-                <div class="text-center" id="heartsdiv">
-                </div>
-            </div>
-
-
-        </div>
-        <div class="container-fluid">
-
-            <div class="_gameinfocontainer">
-                <h4 class="text-light mt-2">Used letters: </h4>
-                <div class="text-center" id="usedletters">
-
-                </div>
-            </div>
-
-        </div> -->
 
         <!-- ! the word -->
-        <div class="container _hangmancontainer">
-            <div class="row">
-                <div class="col-12 text-center" id="theworddiv">
-
-                </div>
+        <div class="mt-4 mb-4">
+            <div class="text-center _hangmanletter" id="theworddiv">
+                <!-- here goes the word picked randomly -->
             </div>
         </div>
 
         <!-- ! letters container -->
-        <div class="container mt-4 mb-4" id="letters">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <span class="_letteropt letter">A</span>
-                    <span class="_letteropt letter">B</span>
-                    <span class="_letteropt letter">C</span>
-                    <span class="_letteropt letter">D</span>
-                    <span class="_letteropt letter">E</span>
-                    <span class="_letteropt letter">F</span>
-                    <span class="_letteropt letter">G</span>
-                    <span class="_letteropt letter">H</span>
-                    <span class="_letteropt letter">I</span>
-                    <span class="_letteropt letter">J</span>
-                    <span class="_letteropt letter">K</span>
-                    <span class="_letteropt letter">L</span>
-                    <span class="_letteropt letter">M</span>
-                    <span class="_letteropt letter">N</span>
-                    <span class="_letteropt letter">O</span>
-                    <span class="_letteropt letter">P</span>
-                    <span class="_letteropt letter">Q</span>
-                    <span class="_letteropt letter">R</span>
-                    <span class="_letteropt letter">S</span>
-                    <span class="_letteropt letter">T</span>
-                    <span class="_letteropt letter">U</span>
-                    <span class="_letteropt letter">V</span>
-                    <span class="_letteropt letter">W</span>
-                    <span class="_letteropt letter">X</span>
-                    <span class="_letteropt letter">Y</span>
-                    <span class="_letteropt letter">Z</span>
-                </div>
+        <table class="table table-dark text-center lead">
+            <tbody>
+                <tr>
+                    <td class="letter">A</td>
+                    <td class="letter">B</td>
+                    <td>C</td>
+                    <td class="letter">D</td>
+                </tr>
+                <tr>
+                    <td class="letter">E</td>
+                    <td class="letter">F</td>
+                    <td class="letter">G</td>
+                    <td class="letter">H</td>
+                </tr>
+                <tr>
+                    <td class="letter">I</td>
+                    <td class="letter">J</td>
+                    <td class="letter">K</td>
+                    <td class="letter">L</td>
+                </tr>
+                <tr>
+                    <td class="letter">M</td>
+                    <td class="letter">N</td>
+                    <td class="letter">O</td>
+                    <td class="letter">P</td>
+                </tr>
+                <tr>
+                    <td class="letter">Q</td>
+                    <td class="letter">R</td>
+                    <td class="letter">S</td>
+                    <td class="letter">T</td>
+                </tr>
+                <tr>
+                    <td class="letter">U</td>
+                    <td class="letter">V</td>
+                    <td class="letter">W</td>
+                    <td class="letter">X</td>
+                </tr>
+                <tr>
+                    <td class="letter">Y</td>
+                    <td class="letter">Z</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <div class="mt-4 mb-4" id="letters">
+            <div class="col-12 text-center">
+                <span class="_letteropt letter">A</span>
+                <span class="_letteropt letter">B</span>
+                <span class="_letteropt letter">C</span>
+                <span class="_letteropt letter">D</span>
+                <span class="_letteropt letter">E</span>
+                <span class="_letteropt letter">F</span>
+                <span class="_letteropt letter">G</span>
+                <span class="_letteropt letter">H</span>
+                <span class="_letteropt letter">I</span>
+                <span class="_letteropt letter">J</span>
+                <span class="_letteropt letter">K</span>
+                <span class="_letteropt letter">L</span>
+                <span class="_letteropt letter">M</span>
+                <span class="_letteropt letter">N</span>
+                <span class="_letteropt letter">O</span>
+                <span class="_letteropt letter">P</span>
+                <span class="_letteropt letter">Q</span>
+                <span class="_letteropt letter">R</span>
+                <span class="_letteropt letter">S</span>
+                <span class="_letteropt letter">T</span>
+                <span class="_letteropt letter">U</span>
+                <span class="_letteropt letter">V</span>
+                <span class="_letteropt letter">W</span>
+                <span class="_letteropt letter">X</span>
+                <span class="_letteropt letter">Y</span>
+                <span class="_letteropt letter">Z</span>
             </div>
-        </div>
+        </div> -->
+
     </div>
 
 

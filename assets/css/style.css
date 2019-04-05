@@ -16,16 +16,7 @@
         padding: 5px;
     }
 
-    /* ! hearts */
-
-   
-
-    /* ! new game */
-
-    hr {
-        height: 1px;
-        background-color: white;
-    }
+    /* ! new game button */
 
     ._newgamebttn {
         font-family: 'Press Start 2P', cursive;
@@ -45,6 +36,28 @@
         cursor: pointer;
     }
 
+    ._newgamebttn:active {
+        box-shadow: none;
+        position: relative;
+        top: .2em;
+    }
+
+    /* ! hangman letter */
+
+    ._hangmanletter {
+        font-family: 'Bungee', cursive;
+        color: orange;
+        font-size: 35px;
+        /* margin-left: 25px;
+        margin-right: 25px; */
+    }
+
+    ._letteropt {
+        font-family: 'Bungee', cursive;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
     ._textopt {
         color: white;
         cursor: pointer;
@@ -56,12 +69,6 @@
         color: white;
         border: 4px dashed orangered;
         border-radius: 5px;
-    }
-
-    ._newgamebttn:active {
-        box-shadow: none;
-        position: relative;
-        top: .2em;
     }
 
     /* game info (row 2) */
@@ -80,25 +87,8 @@
 
     /* game word container */
 
-    ._hangmancontainer {
+    /* ._hangmancontainer {
         margin-top: 80px;
-    }
-
-    ._hangmanletter {
-        font-family: 'Bungee', cursive;
-        color: orange;
-        font-size: 70px;
-        margin-left: 25px;
-        margin-right: 25px;
-    }
+    } */
 
     /* last container */
-
-    ._letteropt {
-        font-family: 'Bungee', cursive;
-        color: whitesmoke;
-        font-size: 65px;
-        margin-left: 50px;
-        margin-right: 50px;
-        cursor: pointer;
-    }

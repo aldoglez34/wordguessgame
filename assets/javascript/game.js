@@ -64,7 +64,7 @@ $("._newgamebttn").click(function () {
     word = [];
     _word = [];
     errorLetters = [];
-    $("#heartsdiv").html("");
+    $("#ui_hearts").html("");
     $("#usedletters").html("");
 
     var canStart = true;
@@ -194,6 +194,7 @@ $(".letter").click(function () {
 
     // var "k" will hold the letter pressed
     var k = $(this).text();
+    $(this).html("<s>" + k + "</s>");
 
     // check if the given letter is in the word array
     checkLetter(k);
@@ -239,7 +240,8 @@ function refreshWord() {
     for (var i = 0; i < _word.length; i++) {
 
         var span = $("<span>");
-        span.attr("class", "_hangmanletter");
+        // span.attr("class", "_hangmanletter");
+        span.attr("class", "mr-2");
         span.text(_word[i]);
         $("#theworddiv").append(span);
     }
@@ -289,19 +291,19 @@ function checkLetter(k) {
                 // decrement points
                 points = points - 100;
                 // update html
-                $("#ui_points").text("Points: " + points);
+                $("#ui_points").text(points);
 
                 // substrackt 1 to hearts
                 hearts--;
-                // clear heartsdiv and show new amount of hearts
-                $("#heartsdiv").html("");
+                // clear ui_hearts and show new amount of hearts
+                $("#ui_hearts").html("");
                 for (var i = 0; i < hearts; i++) {
-                    $("#heartsdiv").append("<i class='fas fa-heart text-warning _gameinfotext'></i>");
+                    $("#ui_hearts").append("<i class='fas fa-heart text-light mr-1'></i>");
                 }
 
                 // add the letter to the errorLetters array
                 errorLetters.push(k);
-                // clear heartsdiv and show new amount of hearts
+                // clear ui_hearts and show new amount of hearts
                 $("#usedletters").html("");
                 // show the errorLetters on the html
                 for (var i = 0; i < errorLetters.length; i++) {
