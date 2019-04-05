@@ -2,171 +2,185 @@
 <html lang="en-us">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Word guess game</title>
 
-    <!-- link para el css file -->
+    <meta charset="UTF-8">
+
+    <title>Word Guess Game</title>
+
+    <!-- css file -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
-    <!-- link para bootsrap cdn -->
+    <!-- bootsrap cdn -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 </head>
 
-<body>
+<body class="bg-dark">
 
-    <!-- <div id="letras" class="letras"></div> -->
-
-    <div class="jumbotron">
-        <h1 class="text-center">
-            <strong>90's Sitcom Guess Game</strong>
-        </h1>
-        <hr>
-        <h4 class="text-center">
-            <div id="letras" class="d-inline bg-success"></div>
-        </h4>
-        <h4 class="text-center">
-            <div id="errores" class="h1 d-inline bg-warning text-white">Errores: </div>
-        </h4>
+    <!-- header -->
+    <div class="container _headercontainer">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center mt-3 mb-3 _headertext">GUESS THE WORD</h1>
+            </div>
+        </div>
     </div>
 
-    <!-- javascript -->
-    <script type="text/javascript">
+    <!-- ! new game container -->
+    <div class="container mt-4" id="newgamecontainer">
 
-        //lista de tv shows
-        var tvShows = [" ",
-            "Seinfield",
-            "Boy Meets World",
-            "Alf",
-            "The Fresh Prince Of Bel Air",
-            "The Nanny",
-            "Friends",
-            "Full House"];
+        <!-- rules -->
+        <div class="row mt-4">
+            <h3 class="text-warning">INSTRUCTIONS~</h3>
+            <p class="text-light _rules">Guess letters one at a time to solve the word puzzle. Click a letter to
+                guess it, or type with your keyboard. Each time you make a mistake, you lose one of your hearts, if the
+                heart count is zero the game is over. Try solving as much words as you can!</p>
+        </div>
 
-        //se genera un número al azar
-        var x = tvShows.length - 1
-        var random = Math.floor((Math.random() * x) + 1);
+        <hr>
 
-        //se guarda el show elegido en un string
-        var show = tvShows[random];
+        <!-- username -->
+        <div class="row mt-4">
+            <h3 class="h3 text-warning">USERNAME~</h3>
+        </div>
+        <div class="row">
+            <input class="_input" id="username">
+        </div>
 
-        //se convierte string del show en un array
-        var showArray = show.split('');
+        <!-- difficulty -->
+        <div class="row mt-4">
+            <h3 class="h3 text-warning">DIFFICULTY~</h3>
+        </div>
+        <div class="row">
+            <div class="col-md text-center">
+                <h3 class="_textopt _selectedtextopt jsdiff">EASY</h3>
+            </div>
+            <div class="col-md text-center">
+                <h3 class="_textopt jsdiff">MEDIUM</h3>
+            </div>
+            <div class="col-md text-center">
+                <h3 class="_textopt jsdiff">HARD</h3>
+            </div>
+        </div>
 
-        //se crea array 2 basado en el length del show
-        //se reemplazan las letras con -
-        var showArrayGame = [];
+        <!-- new game button -->
+        <div class="text-center" style="margin-top: 50px">
+            <span class="_newgamebttn">NEW GAME</span>
+        </div>
 
-        for (var i = 0; i < showArray.length; i++) {
+    </div>
 
-            if (showArray[i].toLowerCase() === " ") {
-                showArrayGame.push(" ");
-            }
-            else {
-                showArrayGame.push("_");
-            }
+    <!-- ! hangman game -->
+    <!-- hangmang main container -->
+    <div class="container mt-3" id="hangmangamecontainer">
 
-        }
+        <!-- game info -->
+        <div>
+            <h1 class="text-light" id="ui_username">USERNAME</h1>
+            <h1 class="text-light" id="ui_difficulty">DIFFICULTY</h1>
+            <h1 class="text-light" id="ui_level">LEVEL</h1>
+            <h1 class="text-light" id="ui_points">POINTS</h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 _gameinfocontainer">
+                    <h4 class="text-light mt-2">Hearts: </h4>
+                    <div class="text-center" id="heartsdiv">
+                    </div>
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-7 _gameinfocontainer">
+                    <h4 class="text-light mt-2">Used letters: </h4>
+                    <div class="text-center" id="usedletters">
 
-        console.log("array 1: " + showArray);
-        console.log("array 2: " + showArrayGame);
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        //función para limpiar el arreglo
-        function limpiarArreglo() {
+        <!-- hangman container -->
+        <div class="container _hangmancontainer">
+            <div class="row">
+                <div class="col-12 text-center" id="theworddiv">
 
-            var targetDiv = document.getElementById("letras");
+                </div>
+            </div>
+        </div>
 
-            targetDiv.innerHTML = '';
+        <!-- letters container -->
+        <div class="container mt-4" id="letters">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <span class="_letteropt letter">A</span>
+                    <span class="_letteropt letter">B</span>
+                    <span class="_letteropt letter">C</span>
+                    <span class="_letteropt letter">D</span>
+                    <span class="_letteropt letter">E</span>
+                    <span class="_letteropt letter">F</span>
+                    <span class="_letteropt letter">G</span>
+                    <span class="_letteropt letter">H</span>
+                    <span class="_letteropt letter">I</span>
+                    <span class="_letteropt letter">J</span>
+                    <span class="_letteropt letter">K</span>
+                    <span class="_letteropt letter">L</span>
+                    <span class="_letteropt letter">M</span>
+                    <span class="_letteropt letter">N</span>
+                    <span class="_letteropt letter">O</span>
+                    <span class="_letteropt letter">P</span>
+                    <span class="_letteropt letter">Q</span>
+                    <span class="_letteropt letter">R</span>
+                    <span class="_letteropt letter">S</span>
+                    <span class="_letteropt letter">T</span>
+                    <span class="_letteropt letter">U</span>
+                    <span class="_letteropt letter">V</span>
+                    <span class="_letteropt letter">W</span>
+                    <span class="_letteropt letter">X</span>
+                    <span class="_letteropt letter">Y</span>
+                    <span class="_letteropt letter">Z</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        }
+    <!-- lose container -->
+    <div class="container mt-4" id="losecontainer">
 
-        //función para mostrar el arreglo
-        function mostrarArreglo() {
+        <h1 class="display-4 text-warning text-center mt-4">GAME OVER</h1>
+        <h3 class="text-warning text-center mt-4">Congratulations <span id="yourusername"></span>, you did great.</h3>
+        <h3 class="text-warning text-center mt-4">Your score of <span id="yourscore"></span> will be uploaded to the
+            database.</h3>
+        <h3 class="text-warning text-center mt-4">You reached level <span id="yourlevel"></span>.</h3>
 
-            var targetDiv = document.getElementById("letras");
+        <div class="text-center" style="margin-top: 50px">
+            <span class="_newgamebttn">NEW GAME</span>
+        </div>
 
-            for (var i = 0; i < showArrayGame.length; i++) {
-                var newDiv = document.createElement("div");
-                newDiv.textContent = showArrayGame[i];
+    </div>
 
-                newDiv.classList.add("h1");
-                newDiv.classList.add("d-inline");
-                newDiv.classList.add("bg-success");
-                newDiv.classList.add("text-white");
+    <!-- ! links -->
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-                targetDiv.appendChild(newDiv);
-
-            }
-        }
-
-        //función para actualizar el arreglo de errores
-        var oportunidades = 6;
-
-        function actualizarErrores(letra) {
-
-            var existe = false;
-
-            if (oportunidades > 0) {
-
-                for (var i = 0; i < showArray.length; i++) {
-
-                    if (showArray[i].toLowerCase() === letra.toLowerCase()) {
-                        existe = true;
-                    }
-
-                }
-
-                if (!existe) {
-                    oportunidades--;
-
-                    var targetDiv = document.getElementById("errores");
-
-                    var newDiv = document.createElement("div");
-                    newDiv.textContent = letra;
-
-                    newDiv.classList.add("h1");
-                    newDiv.classList.add("d-inline");
-                    newDiv.classList.add("bg-warning");
-                    newDiv.classList.add("text-white");
-
-                    targetDiv.appendChild(newDiv);
-
-                    alert("Te quedan: " + oportunidades + " oportunidades");
-
-                }
-            }
-            else {
-                alert("Se acabaron tus oportunidades");
-            }
-
-        }
-
-        limpiarArreglo();
-        mostrarArreglo();
-
-        //evento para monitorear las letras presionadas
-        document.onkeyup = function (event) {
-
-            var letra = event.key.toLowerCase();
-
-            for (var i = 0; i < showArray.length; i++) {
-
-                if (showArray[i].toLowerCase() === letra.toLowerCase()) {
-                    showArrayGame.splice(i, 1, letra.toLowerCase());
-                    console.log(showArrayGame);
-                }
-
-            }
-
-            limpiarArreglo();
-            mostrarArreglo();
-            actualizarErrores(letra);
-
-        }
-
-
-    </script>
+    <!-- javascript file -->
+    <script src="./assets/javascript/game.js"></script>
 
 </body>
 

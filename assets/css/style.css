@@ -1,4 +1,109 @@
-div {
-    
-    margin: 20px;
+/* header */
+
+._headercontainer {
+    border: 4px dashed rgb(221, 54, 54);
+    border-radius: 5px;
+    margin-top: 32px;
+}
+
+._headertext {
+    font-family: 'Press Start 2P', cursive;
+    color: rgb(221, 54, 54);
+    font-size: 65px;
+}
+
+/* rules */
+
+._rules {
+    font-size: 20px;
+}
+
+hr {
+    height: 1px;
+    background-color: white;
+}
+
+._textopt {
+    color: white;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+._selectedtextopt {
+    color: white;
+    border: 4px dashed orangered;
+    border-radius: 5px;
+}
+
+._newgamebttn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20pt;
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px;
+    background-color: rgb(241, 187, 86);
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: orangered;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+    border-radius: 7px;
+    box-shadow: 0 .2em orangered;
+    cursor: pointer;
+}
+
+._input {
+    width: 50%;
+    background-color: transparent;
+    color: ghostwhite;
+    border: none;
+    border-bottom: 2px solid ghostwhite;
+}
+
+._newgamebttn:active {
+    box-shadow: none;
+    position: relative;
+    top: .2em;
+}
+
+/* game info (row 2) */
+
+._gameinfocontainer {
+    border: 4px dashed orangered;
+    border-radius: 5px;
+}
+
+._gameinfotext {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-bottom: 8px;
+}
+
+/* game word container */
+
+._hangmancontainer {
+    margin-top: 80px;
+}
+
+._hangmanletter {
+    font-family: 'Bungee', cursive;
+    color: orange;
+    font-size: 70px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+/* last container */
+
+._letteropt {
+    font-family: 'Bungee', cursive;
+    color: whitesmoke;
+    font-size: 65px;
+    margin-left: 50px;
+    margin-right: 50px;
+    cursor: pointer;
 }
