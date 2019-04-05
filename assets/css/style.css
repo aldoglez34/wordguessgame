@@ -11,11 +11,14 @@
     /* ! game stats */
 
     #_gamestats {
-        background-color: black;
-        /* border: 4px dashed rgb(221, 54, 54); */
+        background-color: rgba(0, 0, 0, 0.808);
         border-radius: 5px;
         padding: 5px;
     }
+
+    /* ! hearts */
+
+   
 
     /* ! new game */
 

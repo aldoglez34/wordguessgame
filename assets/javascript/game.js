@@ -125,7 +125,7 @@ $("._newgamebttn").click(function () {
 
         // show hearts
         for (var i = 0; i < hearts; i++) {
-            $("#heartsdiv").append("<i class='fas fa-heart text-warning _gameinfotext'></i>");
+            $("#ui_hearts").append("<i class='fas fa-heart text-light mr-1'></i>");
         }
 
         // pick a word randomnly from the array and show it
