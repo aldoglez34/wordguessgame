@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
@@ -26,89 +29,87 @@
 
 <body class="bg-dark">
 
-    <!-- header -->
-    <div class="container _headercontainer">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center mt-3 mb-3 _headertext">GUESS THE WORD</h1>
-            </div>
-        </div>
+    <!-- ! HEADER -->
+    <div class="container">
+        <h1 class="text-center mt-2 _headertext">GUESS THE WORD</h1>
     </div>
 
-    <!-- ! new game container -->
-    <div class="container mt-4" id="newgamecontainer">
+    <!-- ! INSTRUCTIONS CONTAINER -->
+    <div class="container" id="newgamecontainer">
 
-        <!-- rules -->
-        <div class="row mt-4">
-            <h3 class="text-warning">INSTRUCTIONS~</h3>
-            <p class="text-light _rules">Guess letters one at a time to solve the word puzzle. Click a letter to
-                guess it, or type with your keyboard. Each time you make a mistake, you lose one of your hearts, if the
-                heart count is zero the game is over. Try solving as much words as you can!</p>
+        <!-- ! instructions -->
+        <h3 class="text-warning">Instructions</h3>
+        <p class="lead text-light">Guess letters one at a time to solve the word puzzle. Click a letter to
+            guess it, or type with your keyboard. Each time you make a mistake, you lose one of your hearts, if the
+            heart count is zero the game is over. Try solving as much words as you can!</p>
+
+        <!-- ! username -->
+        <h3 class="h3 text-warning">Username</h3>
+        <input class="form-control mt-2" autocomplete="off" maxlength="20" id="username">
+        <div class="form-group form-check mt-2">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label text-light" for="exampleCheck1">Remember me on this device</label>
         </div>
 
-        <hr>
-
-        <!-- username -->
-        <div class="row mt-4">
-            <h3 class="h3 text-warning">USERNAME~</h3>
-        </div>
-        <div class="row">
-            <input class="_input" id="username">
-        </div>
-
-        <!-- difficulty -->
-        <div class="row mt-4">
-            <h3 class="h3 text-warning">DIFFICULTY~</h3>
-        </div>
-        <div class="row">
-            <div class="col-md text-center">
-                <h3 class="_textopt _selectedtextopt jsdiff">EASY</h3>
-            </div>
-            <div class="col-md text-center">
-                <h3 class="_textopt jsdiff">MEDIUM</h3>
-            </div>
-            <div class="col-md text-center">
-                <h3 class="_textopt jsdiff">HARD</h3>
-            </div>
+        <!-- ! difficulty -->
+        <h3 class="h3 text-warning">Difficulty</h3>
+        <div class="form-group">
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+            </select>
         </div>
 
-        <!-- new game button -->
-        <div class="text-center" style="margin-top: 50px">
-            <span class="_newgamebttn">NEW GAME</span>
+        <!-- ! play button -->
+        <div class="text-center mt-4 mb-4">
+            <span class="_newgamebttn">PLAY</span>
         </div>
 
     </div>
 
-    <!-- ! hangman game -->
-    <!-- hangmang main container -->
-    <div class="container mt-3" id="hangmangamecontainer">
+    <!-- ! HANGMAN GAME CONTAINER -->
+    <div class="container" id="hangmangamecontainer">
 
-        <!-- game info -->
-        <div>
-            <h1 class="text-light" id="ui_username">USERNAME</h1>
-            <h1 class="text-light" id="ui_difficulty">DIFFICULTY</h1>
-            <h1 class="text-light" id="ui_level">LEVEL</h1>
-            <h1 class="text-light" id="ui_points">POINTS</h1>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-4 _gameinfocontainer">
-                    <h4 class="text-light mt-2">Hearts: </h4>
-                    <div class="text-center" id="heartsdiv">
-                    </div>
-                </div>
-                <div class="col-1">
-                </div>
-                <div class="col-7 _gameinfocontainer">
-                    <h4 class="text-light mt-2">Used letters: </h4>
-                    <div class="text-center" id="usedletters">
-
-                    </div>
-                </div>
+        <!-- ! game stats -->
+        <div id="_gamestats">
+            <div id="ui_username">
+                <span class="text-warning">User: </span>
+            </div>
+            <div id="ui_difficulty">
+                <span class="text-warning">Difficulty: </span>
+            </div>
+            <div id="ui_level">
+                <span class="text-warning">Level: </span>
+            </div>
+            <div id="ui_points">
+                <span class="text-warning">Points: </span>
             </div>
         </div>
 
-        <!-- hangman container -->
+        <!-- ! hearts and used letters -->
+        <div class="container-fluid">
+
+            <div class="_gameinfocontainer">
+                <h4 class="text-light mt-2">Hearts: </h4>
+                <div class="text-center" id="heartsdiv">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="container-fluid">
+
+            <div class="_gameinfocontainer">
+                <h4 class="text-light mt-2">Used letters: </h4>
+                <div class="text-center" id="usedletters">
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ! the word -->
         <div class="container _hangmancontainer">
             <div class="row">
                 <div class="col-12 text-center" id="theworddiv">
@@ -117,7 +118,7 @@
             </div>
         </div>
 
-        <!-- letters container -->
+        <!-- ! letters container -->
         <div class="container mt-4 mb-4" id="letters">
             <div class="row">
                 <div class="col-12 text-center">
@@ -152,20 +153,8 @@
         </div>
     </div>
 
-    <!-- lose container -->
-    <div class="container mt-4" id="losecontainer">
 
-        <h1 class="display-4 text-warning text-center mt-4">GAME OVER</h1>
-        <h3 class="text-warning text-center mt-4">Congratulations <span id="yourusername"></span>, you did great.</h3>
-        <h3 class="text-warning text-center mt-4">Your score of <span id="yourscore"></span> will be uploaded to the
-            database.</h3>
-        <h3 class="text-warning text-center mt-4">You reached level <span id="yourlevel"></span>.</h3>
 
-        <div class="text-center" style="margin-top: 50px">
-            <span class="_newgamebttn">NEW GAME</span>
-        </div>
-
-    </div>
 
     <!-- ! links -->
     <!-- JS, Popper.js, and jQuery -->

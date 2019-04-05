@@ -83,10 +83,10 @@ $("._newgamebttn").click(function () {
         isListening = true;
 
         // show game info
-        $("#ui_username").text("Username: " + username);
-        $("#ui_difficulty").text("Difficulty: " + difficulty);
-        $("#ui_level").text("Level: " + level);
-        $("#ui_points").text("Points: " + points);
+        $("#ui_username").append("<span class=text-light>" + username + "</span>");
+        $("#ui_difficulty").append("<span class=text-light>" + difficulty + "</span>");
+        $("#ui_level").append("<span class=text-light>" + level + "</span>");
+        $("#ui_points").append("<span class=text-light>" + points + "</span>");
 
         // set wordsArray depending on the difficulty
         if (difficulty === "EASY") {
