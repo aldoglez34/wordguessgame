@@ -65,8 +65,6 @@ $("._newgamebttn").click(function () {
     // hide the lose container in case it's a rerun
     $("#losecontainer").hide();
 
-
-
     // reset all values
     points = 1000;
     level = 1;
