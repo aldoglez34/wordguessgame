@@ -362,7 +362,7 @@ function checkIfWinOrLose() {
         $("#hangmangamecontainer").hide();
         $("#losecontainer").show(500);
 
-
+        storageScoreonDB();
     }
 }
 
@@ -379,3 +379,17 @@ function validateIfLetter(k) {
     return isvalidletter;
 }
 
+// -------------------------------------- firebase related stuff
+
+function storageScoreonDB() {
+
+    var database = firebase.database();
+
+    database.ref().push({
+
+        db_username: username,
+        db_difficulty: difficulty,
+        db_level: level,
+        db_points: points
+    });
+}
