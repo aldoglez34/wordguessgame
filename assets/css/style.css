@@ -19,6 +19,7 @@
         }
         ._subtitle {
             font-size: 20px;
+            font-weight: lighter;
         }
         #_remembermesmaller {
             font-size: 14px;
@@ -27,7 +28,7 @@
             font-size: 12px;
         }
         #letterstable {
-            font-size: 12px;
+            font-size: 16px;
         }
     }
 
