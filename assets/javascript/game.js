@@ -100,7 +100,7 @@ $("._newgamebttn").click(function () {
         isListening = true;
 
         // show game info
-        $("#ui_username").append("<span class=text-light>" + username + "</span>");
+        $("#ui_username").html(username);
         $("#ui_difficulty").html(difficulty);
         $("#ui_level").html(level);
         $("#ui_points").html(points);
