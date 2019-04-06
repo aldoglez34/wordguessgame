@@ -38,22 +38,24 @@
     <div class="container" id="newgamecontainer">
 
         <!-- ! instructions -->
-        <h3 class="text-warning">Instructions</h3>
-        <p class="lead text-light">Guess letters one at a time to solve the word puzzle. Click a letter to
+        <h3 class="text-warning _subtitle">Instructions</h3>
+        <p class="lead text-light" id="_instructions">Guess letters one at a time to solve the word puzzle. Click a
+            letter to
             guess it, or type with your keyboard. Each time you make a mistake, you lose one of your hearts, if the
             heart count gets to zero the game is over. Try solving as much words as you can, your final score will be
             uploaded to a database for all the world to see!</p>
 
         <!-- ! username -->
-        <h3 class="h3 text-warning">Username</h3>
+        <h3 class="text-warning _subtitle">Username</h3>
         <input class="form-control mt-2" autocomplete="off" maxlength="20" id="username">
         <div class="form-group form-check mt-2">
             <input type="checkbox" class="form-check-input" id="rememberme">
-            <label class="form-check-label text-light" for="exampleCheck1">Remember me on this device</label>
+            <label class="form-check-label text-light" for="exampleCheck1" id="_remembermesmaller">Remember me on this
+                device</label>
         </div>
 
         <!-- ! difficulty -->
-        <h3 class="h3 text-warning">Difficulty</h3>
+        <h3 class="text-warning _subtitle">Difficulty</h3>
         <div class="form-group">
             <select class="form-control" id="difficultyform">
                 <option>Easy</option>
@@ -92,14 +94,15 @@
         </div>
 
         <!-- ! the word -->
-        <div class="mt-4 mb-4">
+        <p class="text-center mt-4 text-warning"><em id="category"></em></p>
+        <div class="mt-2 mb-2">
             <div class="text-center _hangmanletter" id="theworddiv">
                 <!-- here goes the word picked randomly -->
             </div>
         </div>
 
         <!-- ! letters container -->
-        <table class="table table-dark text-center lead">
+        <table class="table table-dark text-center lead" id="letterstable">
             <tbody>
                 <tr>
                     <td class="letter">A</td>
@@ -152,8 +155,7 @@
     <div class="container mt-4" id="losecontainer">
         <h1 class="text-warning text-center mt-4">GAME OVER</h1>
         <div class="text-light lead mt-4">
-            <p>Your score of <span id="yourscore"></span> will be uploaded to the
-                database.</p>
+            <p>Your final score is <span id="yourscore"></span>.</p>
             <p>You reached level <span id="yourlevel"></span>.</p>
         </div>
 

@@ -8,9 +8,26 @@
         padding: 5px;
     }
 
-    @media screen and (max-width: 768px) {
+    /* * make smaller fonts on smaller screens  */
+
+    @media screen and (max-width: 600px) {
         ._headertext {
+            font-size: 17px;
+        }
+        #_instructions {
+            font-size: 13px;
+        }
+        #_remembermesmaller {
+            font-size: 14px;
+        }
+        ._subtitle {
             font-size: 20px;
+        }
+        #_gamestats {
+            font-size: 10px;
+        }
+        #letterstable {
+            font-size: 12px;
         }
     }
 
